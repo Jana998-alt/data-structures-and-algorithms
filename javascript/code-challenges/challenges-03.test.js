@@ -76,8 +76,15 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
   let newArr = arr.filter(function(array){
-    let allowed = for(let i=0; i<arr.length; )
-    return 
+    let allowed =[];
+     for(let i=0; i<arr.length; i++){
+       for(let j=0; j<forbiddenValues.length;j++){
+        if (forbiddenValues[j] === arr[i]){
+          allowed.push(arr[i]);
+      }
+      }
+    }
+    return allowed;
   })
   return (newArr);
 
