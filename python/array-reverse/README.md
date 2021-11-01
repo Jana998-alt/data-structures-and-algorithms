@@ -11,4 +11,5 @@ Input	Output
 
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
-My approach as you can see in the white board, is assigning
+My approach as you can see in the white board, is calling the array elements using negative indices, and storing the elements in a new array consecutively.
+the big O is O(n) because there is just one for loop, which is considered to be good in terms of time consumption.
