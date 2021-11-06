@@ -4,6 +4,17 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 ## Repository Quick Tour and Usage
 
+### table of contents
+
+
+| Number | Challenge |
+| ------ | --------- |
+| 01 | [array reverse](array-reverse/README.md) |
+| 02 | [array insert shift](array-insert-shift/README.md) |
+| 03 | []() |
+| 03 | []() |
+
+
 ### 301 Code Challenges
 
 Under the `javascript` folder, at the top level, is a sub-folder called `code-challenges`
