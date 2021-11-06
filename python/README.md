@@ -9,6 +9,7 @@
 | Number | Challenge |
 | ------ | --------- |
 | 01 | [array reverse](array-reverse/README.md) |
+| 02 | [array insert shift](array-insert-shift/README.md) |
 
 
 
