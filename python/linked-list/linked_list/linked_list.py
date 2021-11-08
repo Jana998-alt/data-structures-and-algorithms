@@ -114,3 +114,28 @@ class Linked_List:
             else:
                 current_node = current_node.next
 
+    def kth_from_end(self,k):
+        # argument: a number, k, as a parameter.
+        # Return the node’s value that is k places from the tail of the linked list.
+        # You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+        current_node = self.head
+        length = 1
+        while current_node:
+            current_node = current_node.next
+            length+=1
+
+        if length == 1:
+            return "linked list is empty"
+
+        if k>= length or k<0:
+            return None
+
+        else:
+            current_node = self.head
+            value_at_k = ''
+
+            for i in range(length - k - 2):
+                current_node.next
+
+            value_at_k = current_node.value
+        return value_at_k
