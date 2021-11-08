@@ -70,12 +70,47 @@ class Linked_List:
 
 
 
-    def insert_before(value, new_value):
+    def insert_before(self,value, new_value):
         # arguments: value, new value
         # adds a new node with the given new value immediately before the first node that has the value specified
-            pass
 
-    def insert_after(value, new_value):
+        previous_node = self.head
+        if self.head.value == value:
+            new_node = Node(new_value)
+            new_node.next = self.head
+            self.head = new_node
+
+        else:
+            current_node = self.head.next
+            while current_node:
+                if current_node.value == value:
+                    previous_node.next = Node(new_value)
+                    previous_node.next.next= current_node
+                    break
+                elif current_node == None:
+                    raise('node does not exist in linked list')
+
+                else:
+                    previous_node = current_node
+                    current_node = current_node.next
+
+
+
+    def insert_after(self, value, new_value):
         # arguments: value, new value
         # adds a new node with the given new value immediately after the first node that has the value specified
-            pass
+        current_node = self.head
+        holder_node = ''
+        while current_node:
+            if value == current_node.value:
+                holder_node = current_node.next
+                current_node.next = Node(new_value)
+                current_node.next.next = holder_node
+                break
+
+            elif current_node == None:
+                raise('node does not exist in linked list')
+
+            else:
+                current_node = current_node.next
+
