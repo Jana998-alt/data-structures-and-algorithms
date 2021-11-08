@@ -21,8 +21,8 @@ def test_for_Linked_List_instantiation():
 def test_for_Linked_List_insert():
     new_linked = Linked_List()
     new_linked.insert(2)
-    expected = " 2 -> NULL"
-    actual = new_linked.to_string()
+    expected = "head -> 2 -> NULL"
+    actual = new_linked.__str__()
     assert expected == actual
 
 
@@ -33,7 +33,7 @@ def test_head_point_to_first_node():
     new_linked.insert(2)
     new_linked.insert(3)
     new_linked.insert(4)
-    excepted = 2
+    excepted = 4
     actual = new_linked.head.value
     assert excepted == actual
 
@@ -44,8 +44,8 @@ def test_for_Linked_List_insert_multiple():
     new_linked.insert(2)
     new_linked.insert(3)
     new_linked.insert(4)
-    expected = " 2 -> 3 -> 4 -> NULL"
-    actual = new_linked.to_string()
+    expected = "head -> 4 -> 3 -> 2 -> NULL"
+    actual = new_linked.__str__()
     assert expected == actual
 
 
@@ -72,5 +72,4 @@ def test_not_find_value_in_linked_list():
     assert actual == excepted
 
 # Can properly return a collection of all the values that exist in the linked list
-
 
