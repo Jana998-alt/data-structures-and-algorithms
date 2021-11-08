@@ -2,12 +2,12 @@ class Node:
     def __init__ (self, value):
         self.value = value
         self.next = None
-        self.tail = -1
 
 
 class Linked_List:
     def __init__(self):
         self.head = None
+
 
     def insert(self,value):
     # Arguments: value
@@ -17,14 +17,9 @@ class Linked_List:
             self.head = Node(value)
 
         else:
-            current_node = self.head
-            while current_node:
-                if current_node.tail == -1:
-                    current_node.next = Node(value)
-                    current_node.next.next = None
-                    current_node.tail = 0
-                    break
-                current_node = current_node.next
+            temp_node = self.head
+            self.head = Node(value)
+            self.head.next = temp_node
 
 
 
@@ -41,12 +36,12 @@ class Linked_List:
 
         return False
 
-    def to_string(self):
+    def __str__(self):
     # Arguments: none
     # Returns: a string representing all the values in the Linked List, formatted as:
     # "{ a } -> { b } -> { c } -> NULL"
         current_node = self.head
-        text = ' '
+        text = 'head -> '
         while current_node:
             text = text + f'{current_node.value} -> '
             current_node = current_node.next
