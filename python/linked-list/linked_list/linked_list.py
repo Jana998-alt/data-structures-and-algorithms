@@ -41,11 +41,41 @@ class Linked_List:
     # Returns: a string representing all the values in the Linked List, formatted as:
     # "{ a } -> { b } -> { c } -> NULL"
         current_node = self.head
-        text = 'head -> '
-        while current_node:
-            text = text + f'{current_node.value} -> '
-            current_node = current_node.next
+        text = 'head'
+        if self.head != None:
+            while current_node:
+                text = text + f' -> {current_node.value}'
+                current_node = current_node.next
 
-        text = text + "NULL"
+        text = text + " -> NULL"
         return text
 
+
+    def append(self,new_value):
+        # arguments: new value
+        # adds a new node with the given value to the end of the list
+        current_node = self.head
+        if self.head == None:
+            self.head = Node(new_value)
+
+        else:
+            while current_node:
+                if current_node.next == None:
+                    current_node.next = Node(new_value)
+                    current_node.next.next = None
+                    break
+                else:
+                    current_node = current_node.next
+
+
+
+
+    def insert_before(value, new_value):
+        # arguments: value, new value
+        # adds a new node with the given new value immediately before the first node that has the value specified
+            pass
+
+    def insert_after(value, new_value):
+        # arguments: value, new value
+        # adds a new node with the given new value immediately after the first node that has the value specified
+            pass
