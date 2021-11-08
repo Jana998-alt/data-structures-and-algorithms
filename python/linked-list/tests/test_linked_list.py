@@ -1,5 +1,6 @@
-from linked_list import __version__
 import pytest
+from linked_list import __version__
+
 
 
 def test_version():
@@ -62,6 +63,7 @@ def test_find_value_in_linked_list():
 
 # Will return false when searching for a value in the linked list that does not exist
 
+@pytest.fixture
 def test_not_find_value_in_linked_list():
     new_linked = Linked_List()
     new_linked.insert(2)
@@ -73,3 +75,77 @@ def test_not_find_value_in_linked_list():
 
 # Can properly return a collection of all the values that exist in the linked list
 
+# Can successfully add a node to the end of the linked list
+
+def test_append_to_end_of_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.append(1)
+    expected = "head -> 4 -> 3 -> 2 -> 1 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
+
+# Can successfully add multiple nodes to the end of a linked list
+
+def test_append_multiple_values_to_end_of_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.append(1)
+    new_linked.append(0)
+    expected = "head -> 4 -> 3 -> 2 -> 1 -> 0 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
+
+
+# Can successfully insert a node before a node located i the middle of a linked list
+
+def test_insert_before_a_value_in_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.insert_before(3, 111)
+    expected = "head -> 4 -> 111 -> 3 -> 2 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
+
+# Can successfully insert a node before the first node of a linked list
+
+def test_insert_before_first_value_in_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.insert_before(4, 111)
+    expected = "head -> 111 -> 4 -> 3 -> 2 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
+
+# Can successfully insert after a node in the middle of the linked list
+
+def test_insert_after_node_in_middle_of_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.insert_after(3, 111)
+    expected = "head -> 4 -> 3 -> 111 -> 2 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
+
+
+# Can successfully insert a node after the last node of the linked list
+
+def test_insert_after_node_in_end_of_linked_list():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    new_linked.insert_after(2, 111)
+    expected = "head -> 4 -> 3 -> 2 -> 111 -> NULL"
+    actual = new_linked.__str__()
+    assert expected == actual
