@@ -154,32 +154,14 @@ class Linked_List:
 
 
         zipped_list = Linked_List()
-        zipped_list_current = zipped_list.head
         node1= l1.head
         node2 = l2.head
         while node1 != None and node2 != None:
-            print(node1)
-            print(node2)
-            print(zipped_list_current)
-            zipped_list_current = node1
-            zipped_list_current.next = node2
+            print("node1", node1)
+            print("node2", node2)
+            zipped_list.append(node1.value)
+            zipped_list.append(node2.value)
             node1 = node1.next
             node2 = node2.next
-            zipped_list_current = zipped_list_current.next.next
 
         return zipped_list
-
-
-if __name__ == "__main__":
-    new_linked = Linked_List()
-    new_linked.insert(2)
-    new_linked.insert(3)
-    new_linked.insert(4)
-
-    new_linked2 = Linked_List()
-    new_linked2.insert(22)
-    new_linked2.insert(33)
-    new_linked2.insert(44)
-    expected = "head -> 2 -> 22 -> 3 -> 33 -> 4 -> 44 -> NULL"
-    actual = Linked_List.zip_lists(new_linked, new_linked2)
-    print(actual)

@@ -174,6 +174,6 @@ def test_kth_from_end():
     new_linked2.insert(22)
     new_linked2.insert(33)
     new_linked2.insert(44)
-    expected = "head -> 2 -> 22 -> 3 -> 33 -> 4 -> 44 -> NULL"
+    expected = "head -> 4 -> 44 -> 3 -> 33 -> 2 -> 22 -> NULL"
     actual = Linked_List.zip_lists(new_linked, new_linked2).__str__()
     assert expected == actual
