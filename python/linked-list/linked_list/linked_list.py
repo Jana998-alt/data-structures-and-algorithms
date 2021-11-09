@@ -3,6 +3,9 @@ class Node:
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return f"value: {self.value}"
+
 
 class Linked_List:
     def __init__(self):
@@ -139,3 +142,44 @@ class Linked_List:
 
             value_at_k = current_node.value
         return value_at_k
+
+
+    @staticmethod
+    def zip_lists(l1, l2):
+        # Arguments: 2 linked lists
+        # Return: Linked List, zipped as noted below
+        # Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+        # Try and keep additional space down to O(1)
+        # You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+
+        zipped_list = Linked_List()
+        zipped_list_current = zipped_list.head
+        node1= l1.head
+        node2 = l2.head
+        while node1 != None and node2 != None:
+            print(node1)
+            print(node2)
+            print(zipped_list_current)
+            zipped_list_current = node1
+            zipped_list_current.next = node2
+            node1 = node1.next
+            node2 = node2.next
+            zipped_list_current = zipped_list_current.next.next
+
+        return zipped_list
+
+
+if __name__ == "__main__":
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+
+    new_linked2 = Linked_List()
+    new_linked2.insert(22)
+    new_linked2.insert(33)
+    new_linked2.insert(44)
+    expected = "head -> 2 -> 22 -> 3 -> 33 -> 4 -> 44 -> NULL"
+    actual = Linked_List.zip_lists(new_linked, new_linked2)
+    print(actual)
