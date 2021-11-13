@@ -16,9 +16,23 @@ def test_for_push_to_stack(stack):
 
 # Can successfully push multiple values onto a stack
 
+def test_for_push_multiple_to_stack(stack):
+    expected = "top -> 77 -> 88 -> 99 -> 1 -> 2 -> 3 -> 4 -> 5 -> NULL"
+    stack.push(99)
+    stack.push(88)
+    stack.push(77)
+    actual = stack.__str__()
+    assert expected == actual
 
 # Can successfully pop off the stack
 
+def test_for_pop_from_stack(stack):
+    expected = "top -> 3 -> 4 -> 5 -> NULL"
+    expected2 = "2"
+    stack.pop()
+    actual2 = stack.pop()
+    actual = stack.__str__()
+    assert expected == actual, expected2 == actual2
 
 # Can successfully empty a stack after multiple pops
 

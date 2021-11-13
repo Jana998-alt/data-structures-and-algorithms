@@ -23,10 +23,24 @@ class Stack:
         # Removes the node from the top of the stack
         # Should raise exception when called on empty stack
 
+    def pop(self):
+
+        if self.top == None:
+            raise('ERROR: Empty Stack')
+
+        temp_node = self.top.next
+        temp_value = self.top.value
+        self.top = None
+        self.top = temp_node
+        return temp_value
+
         # peek
         # Arguments: none
         # Returns: Value of the node located at the top of the stack
         # Should raise exception when called on empty stack
+
+    def peek(self):
+
 
         # is empty
         # Arguments: none
