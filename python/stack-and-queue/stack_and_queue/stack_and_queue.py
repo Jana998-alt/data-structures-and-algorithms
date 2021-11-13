@@ -26,7 +26,7 @@ class Stack:
     def pop(self):
 
         if self.top == None:
-            raise('ERROR: Empty Stack')
+            raise ValueError('Empty Stack')
 
         temp_node = self.top.next
         temp_value = self.top.value
@@ -41,6 +41,10 @@ class Stack:
 
     def peek(self):
 
+        if self.top == None:
+            raise ValueError('Empty Stack')
+        else:
+            return self.top.value
 
         # is empty
         # Arguments: none
@@ -66,9 +70,4 @@ class Stack:
 
 if __name__ == "__main__":
     new_stack = Stack()
-    new_stack.top = Node(1)
-    new_stack.top.next = Node(2)
-    new_stack.top.next.next = Node(3)
-    new_stack.top.next.next.next = Node(4)
-    new_stack.top.next.next.next.next = Node(5)
-    print(new_stack.__str__())
+    print(type(new_stack.pop()))

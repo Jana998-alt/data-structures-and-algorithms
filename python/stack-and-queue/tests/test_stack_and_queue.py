@@ -1,6 +1,8 @@
 from stack_and_queue import __version__
 import pytest
+import unittest
 from stack_and_queue.stack_and_queue import (Node, Stack)
+
 
 
 def test_version():
@@ -36,16 +38,37 @@ def test_for_pop_from_stack(stack):
 
 # Can successfully empty a stack after multiple pops
 
+def test_for_pop_till_empty_stack(stack):
+    expected = "top -> NULL"
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    actual = stack.__str__()
+    assert expected == actual
 
 # Can successfully peek the next item on the stack
+
+def test_for_peek_stack(stack):
+    actual = stack.peek()
+    expected = 1
+    assert expected == actual
 
 
 # Can successfully instantiate an empty stack
 
+def test_for_instantiate_stack():
+    new_stack = Stack()
+    actual = new_stack.__str__()
+    expected = "top -> NULL"
+    assert expected == actual
 
 # Calling pop or peek on empty stack raises exception
 
-
+# def test_for_pop_or_peek_on_empty_stack_raises_exception(empty_stack):
+#     empty_stack.pop()
+#     assert unittest.TestCase.assertRaises(ValueError)
 
 
 
@@ -69,3 +92,8 @@ def stack():
     new_stack.top.next.next.next.next = Node(5)
     # "top -> 1 -> 2 -> 3 -> 4 -> 5 -> NULL"
     return new_stack
+
+@pytest.fixture
+def empty_stack():
+    empty_stack = Stack()
+    return empty_stack
