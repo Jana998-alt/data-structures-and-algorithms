@@ -1,7 +1,7 @@
 from stack_and_queue import __version__
 import pytest
 import unittest
-from stack_and_queue.stack_and_queue import (Node, Stack)
+from stack_and_queue.stack_and_queue import (Node, Stack, Queue)
 
 
 
@@ -73,7 +73,22 @@ def test_for_instantiate_stack():
 
 
 # Can successfully enqueue into a queue
+def test_for_enqueue_to_queue(queue):
+    expected = "front -> 1 -> 2 -> 3 -> 4 -> 5 -> 99 -> rear"
+    queue.enqueue(99)
+    actual = queue.__str__()
+    assert expected == actual
+
 # Can successfully enqueue multiple values into a queue
+
+def test_for_enqueue_multiple_to_queue(queue):
+    expected = "front -> 1 -> 2 -> 3 -> 4 -> 5 -> 99 -> 88 -> 77 -> rear"
+    queue.enqueue(99)
+    queue.enqueue(88)
+    queue.enqueue(77)
+    actual = queue.__str__()
+    assert expected == actual
+
 # Can successfully dequeue out of a queue the expected value
 # Can successfully peek into a queue, seeing the expected value
 # Can successfully empty a queue after multiple dequeues
@@ -97,3 +112,17 @@ def stack():
 def empty_stack():
     empty_stack = Stack()
     return empty_stack
+
+@pytest.fixture
+def queue():
+    new_queue = Queue()
+    new_queue.front = Node(1)
+    new_queue.front.next = Node(2)
+    new_queue.front.next.next = Node(3)
+    new_queue.front.next.next.next = Node(4)
+    rear = Node(5)
+    new_queue.front.next.next.next.next = rear
+    new_queue.rear = rear
+
+    # "top -> 1 -> 2 -> 3 -> 4 -> 5 -> rear"
+    return new_queue
