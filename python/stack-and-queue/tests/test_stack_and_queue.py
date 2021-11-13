@@ -90,9 +90,43 @@ def test_for_enqueue_multiple_to_queue(queue):
     assert expected == actual
 
 # Can successfully dequeue out of a queue the expected value
+
+def test_for_dequeue_from_queue(queue):
+    expected = "front -> 3 -> 4 -> 5 -> rear"
+    expected2 = "1"
+    queue.dequeue()
+    actual2 = queue.dequeue()
+    actual = queue.__str__()
+    assert expected == actual, expected2 == actual2
+
+
 # Can successfully peek into a queue, seeing the expected value
+
+def test_for_peek_queue(queue):
+    actual = queue.peek()
+    expected = 1
+    assert expected == actual
+
 # Can successfully empty a queue after multiple dequeues
+
+def test_for_dequeue_multiple_from_queue(queue):
+    expected = "front -> rear"
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    actual = queue.__str__()
+    assert expected == actual
+
 # Can successfully instantiate an empty queue
+
+def test_for_instantiate_queue():
+    new_queue = Queue()
+    actual = new_queue.__str__()
+    expected = "front -> rear"
+    assert expected == actual
+
 # Calling dequeue or peek on empty queue raises exception
 
 

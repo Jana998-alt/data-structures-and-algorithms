@@ -86,7 +86,7 @@ class Queue():
     # Arguments: value
     # adds a new node with that value to the back of the queue with an O(1) Time performance.
 
-# "top -> 1 -> 2 -> 3 -> 4 -> 5 -> 99 -> rear"
+# "front -> 1 -> 2 -> 3 -> 4 -> 5 -> 99 -> rear"
 
     def enqueue(self, value):
         new_node = Node(value)
@@ -110,16 +110,36 @@ class Queue():
     # Removes the node from the top of the queue
     # Should raise exception when called on empty queuey
 
+    def dequeue(self):
+        if self.rear == None and self.front == None:
+            raise ValueError('empty queue')
+
+        temp_val = self.front.value
+        self.front = self.front.next
+
+        return temp_val
 
     # peek
     # Arguments: none
     # Returns: Value of the node located at the top of the queue
     # Should raise exception when called on empty stack
 
+    def peek(self):
+        if self.front == None:
+            raise ValueError('empty queue')
+        else:
+            return self.front.value
 
     # is empty
     # Arguments: none
     # Returns: Boolean indicating whether or not the queue is empty
+
+    def is_empty(self):
+        if self.front == None and self.rear == None:
+            return True
+        else:
+            return False
+
 
     def __str__(self):
         str = 'front ->'
