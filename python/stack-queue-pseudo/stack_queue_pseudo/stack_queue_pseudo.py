@@ -66,7 +66,7 @@ class Stack:
 # NOTE: The Stack instances have only push, pop, and peek methods. You should use your own Stack implementation. Instantiate these Stack objects in your PseudoQueue constructor.
 
 
-class PseudoQueue():
+class PseudoQueue:
     def __init__(self):
         self.stack_front = Stack()
         self.stack_rear = Stack()
@@ -76,16 +76,44 @@ class PseudoQueue():
 
     def dequeue(self):
         empty_stack = self.stack_rear
-        current = self.stack_front.head
-        
-        while current.next.next != None:
+        current = self.stack_front.top
+        return_val = None
+
+        while current.next != None:
             value = self.stack_front.peek()
             self.stack_rear.push(value)
             self.stack_front.pop()
             current = current.next
+        return_val = current.value
+        self.stack_front.pop()
 
-        self.stack_front = self.stack_rear
+        current2 = self.stack_rear.top
+        while current2 != None:
+            value = self.stack_rear.peek()
+            self.stack_front.push(value)
+            current2 = current2.next
+
+        # self.stack_front = self.stack_rear
         self.stack_rear = empty_stack
+
+        return return_val
+
+    def __str__(self):
+        str = 'front ->'
+        current_node = self.stack_front.top
+
+        while current_node:
+            print(current_node.value)
+            str = str + f" {current_node.value} ->"
+            if current_node == None:
+                str = str + ' rear'
+                break
+            current_node = current_node.next
+
+        if current_node == None:
+            str = str + ' rear'
+
+        return str
 
 
 
