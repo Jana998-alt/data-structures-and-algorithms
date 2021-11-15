@@ -91,6 +91,7 @@ class PseudoQueue:
         while current2 != None:
             value = self.stack_rear.peek()
             self.stack_front.push(value)
+            self.stack_rear.pop()
             current2 = current2.next
 
         # self.stack_front = self.stack_rear
@@ -103,7 +104,6 @@ class PseudoQueue:
         current_node = self.stack_front.top
 
         while current_node:
-            print(current_node.value)
             str = str + f" {current_node.value} ->"
             if current_node == None:
                 str = str + ' rear'
