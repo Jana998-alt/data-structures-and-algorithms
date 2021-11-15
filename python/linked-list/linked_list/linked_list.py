@@ -3,6 +3,9 @@ class Node:
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return f"value: {self.value}"
+
 
 class Linked_List:
     def __init__(self):
@@ -114,3 +117,51 @@ class Linked_List:
             else:
                 current_node = current_node.next
 
+    def kth_from_end(self,k):
+        # argument: a number, k, as a parameter.
+        # Return the node’s value that is k places from the tail of the linked list.
+        # You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+        current_node = self.head
+        length = 1
+        while current_node:
+            current_node = current_node.next
+            length+=1
+
+        if length == 1:
+            return "linked list is empty"
+
+        if k>= length or k<0:
+            return None
+
+        else:
+            current_node = self.head
+            value_at_k = ''
+
+            for i in range(length - k - 2):
+                current_node.next
+
+            value_at_k = current_node.value
+        return value_at_k
+
+
+    @staticmethod
+    def zip_lists(l1, l2):
+        # Arguments: 2 linked lists
+        # Return: Linked List, zipped as noted below
+        # Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+        # Try and keep additional space down to O(1)
+        # You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+
+        zipped_list = Linked_List()
+        node1= l1.head
+        node2 = l2.head
+        while node1 != None and node2 != None:
+            print("node1", node1)
+            print("node2", node2)
+            zipped_list.append(node1.value)
+            zipped_list.append(node2.value)
+            node1 = node1.next
+            node2 = node2.next
+
+        return zipped_list

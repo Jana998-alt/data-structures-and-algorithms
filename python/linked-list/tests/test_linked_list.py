@@ -149,3 +149,31 @@ def test_insert_after_node_in_end_of_linked_list():
     expected = "head -> 4 -> 3 -> 2 -> 111 -> NULL"
     actual = new_linked.__str__()
     assert expected == actual
+
+
+# “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
+def test_kth_from_end():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+    expected = 4
+    actual = new_linked.kth_from_end(2)
+    assert expected == actual
+
+
+
+def test_kth_from_end():
+    new_linked = Linked_List()
+    new_linked.insert(2)
+    new_linked.insert(3)
+    new_linked.insert(4)
+
+    new_linked2 = Linked_List()
+    new_linked2.insert(22)
+    new_linked2.insert(33)
+    new_linked2.insert(44)
+    expected = "head -> 4 -> 44 -> 3 -> 33 -> 2 -> 22 -> NULL"
+    actual = Linked_List.zip_lists(new_linked, new_linked2).__str__()
+    assert expected == actual
