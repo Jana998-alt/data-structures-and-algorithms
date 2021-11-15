@@ -13,6 +13,8 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 | 02 | [array insert shift](array-insert-shift/README.md) |
 | 03 | [binary search](python/array-binary-search./README.md) |
 | 04 | [stack & queue](python/stack-and-queue/README.md) |
+| 05 | [stack & queue pseudo](python/stack-queue-pseudo/README.md) |
+| 06 | [stack & queue animal shelter](python/stack-queue-animal-shelter/README.md) |
 
 
 
