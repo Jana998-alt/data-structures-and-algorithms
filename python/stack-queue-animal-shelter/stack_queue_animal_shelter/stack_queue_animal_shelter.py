@@ -32,7 +32,7 @@ class AnimalShelter:
     def dequeue(self, pref='any'):
 
         # If pref is not "dog" or "cat" then return null.
-        if pref != 'cat' or pref != 'dog':
+        if pref != 'cat' or pref != 'dog' or pref != 'any':
             return None
 
         # If the queue is empty
@@ -61,6 +61,12 @@ class AnimalShelter:
                 return "your request is not available"
             else:
                 return animal_to_give
+
+
+  # def __str__():
+
+
+  #   while current
 
 
 if __name__ == "___main__":
