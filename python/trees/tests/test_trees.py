@@ -70,7 +70,3 @@ def tree():
   new_tree.root.left.left.add_right("h")
   return new_tree
 
-# a
-# c   b
-# gf   ed
-#  h
