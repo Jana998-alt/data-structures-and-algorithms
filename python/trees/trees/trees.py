@@ -45,10 +45,10 @@ class BinaryTree:
     def depth_in_order(self):
 
         root = self.root
+        test = None
         traversals_array = []
 
         def _inorder(root):
-
             if root.left != None:
                 _inorder(root.left)
 
@@ -77,6 +77,31 @@ class BinaryTree:
             self.traversals_array.append(root.value)
 
         return self.traversals_array
+
+
+    def find_maximum_value(self):
+
+        root = self.root
+
+        if root.value == None:
+            raise ValueError("tree is empty")
+
+        self.max_number = self.root.value
+
+        def _max(root):
+
+            if root.value > self.max_number:
+              self.max_number = root.value
+
+            if root.left != None:
+              _max(root.left)
+
+            if root.right != None:
+              _max(root.right)
+
+        _max(root)
+
+        return self.max_number
 
 
 class BinarySearchTree:

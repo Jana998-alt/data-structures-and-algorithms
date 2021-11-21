@@ -58,6 +58,12 @@ def test_for_post_order(tree):
   actual = tree.depth_post_order()
   assert excepted == actual
 
+def test_for_max_value(number_tree):
+  excepted = 452
+  actual = number_tree.find_maximum_value()
+  assert excepted == actual
+
+
 @pytest.fixture
 def tree():
   new_tree = BinaryTree('a')
@@ -68,6 +74,18 @@ def tree():
   new_tree.root.left.add_right("f")
   new_tree.root.left.add_left("g")
   new_tree.root.left.left.add_right("h")
+  return new_tree
+
+@pytest.fixture
+def number_tree():
+  new_tree = BinaryTree(1)
+  new_tree.root.add_right(22)
+  new_tree.root.add_left(53)
+  new_tree.root.right.add_right(45)
+  new_tree.root.right.add_left(452)
+  new_tree.root.left.add_right(99)
+  new_tree.root.left.add_left(12)
+  new_tree.root.left.left.add_right(91)
   return new_tree
 
 # a
