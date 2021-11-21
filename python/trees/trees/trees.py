@@ -51,7 +51,7 @@ class BinaryTree:
 
       if root.left != None:
         _inorder(root.left)
-        
+
 
       traversals_array.append(root.value)
 
@@ -73,11 +73,11 @@ class BinaryTree:
     if root:
       if root.left != None:
         self.depth_post_order(root.left)
-        self.traversals_array.append(root.value)
+
 
       if root.right != None:
         self.depth_post_order(root.right)
-        self.traversals_array.append(root.value)
+
 
       self.traversals_array.append(root.value)
 
