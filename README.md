@@ -15,6 +15,7 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 | 04 | [stack & queue](python/stack-and-queue/README.md) |
 | 05 | [stack & queue pseudo](python/stack-queue-pseudo/README.md) |
 | 06 | [stack & queue animal shelter](python/stack-queue-animal-shelter/README.md) |
+| 07 | [Trees](python/trees/README.md) |
 
 
 
