@@ -46,14 +46,17 @@ def test_for_preorder(tree):
 # Can successfully return a collection from an inorder traversal
 
 def test_for_In_order(tree):
-  excepted = ['g','h', 'c', 'f', 'a','e','d','b']
+  excepted = ['g','h', 'c', 'f', 'a','e','b','d']
   actual = tree.depth_in_order()
   assert excepted == actual
 
 
 # Can successfully return a collection from a postorder traversal
 
-
+def test_for_post_order(tree):
+  excepted = ['h','g', 'f', 'c', 'a','e','d','b']
+  actual = tree.depth_post_order()
+  assert excepted == actual
 
 @pytest.fixture
 def tree():
