@@ -42,29 +42,27 @@ class BinaryTree:
 
   # left >> root >> right
 
-  def depth_in_order(self, root=None):
+  def depth_in_order(self):
 
-    if root == None:
-      root = self.root
-      self.traversals_array = []
+    root = self.root
+    traversals_array = []
 
-    if root:
+    def _inorder(root):
+
       if root.left != None:
-        self.depth_pre_order(root.left)
-        self.traversals_array.append(root.left.value)
+        _inorder(root.left)
+        
 
-      else:
-        self.traversals_array.append(root.left.value)
-
-      self.traversals_array.append(root.value)
+      traversals_array.append(root.value)
 
       if root.right != None:
-        self.depth_pre_order(root.right)
-        self.traversals_array.append(root.right.value)
-      else:
-        self.traversals_array.append(root.right.value)
+        _inorder(root.right)
 
-    return self.traversals_array
+
+
+    _inorder(root)
+
+    return traversals_array
 
   def depth_post_order(self, root=None):
 

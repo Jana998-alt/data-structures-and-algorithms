@@ -26,7 +26,7 @@ def test_for_instantiation_with_root():
 
 # Can successfully add a left child and right child to a single root node
 
-def test_for_adding_left_amd_right_to_root():
+def test_for_adding_left_and_right_to_root():
   new_tree = BinaryTree('First Node')
   new_tree.root.add_right("potato")
   new_tree.root.add_left("pizza")
@@ -53,10 +53,10 @@ def test_for_In_order(tree):
 
 # Can successfully return a collection from a postorder traversal
 
-def test_for_post_order(tree):
-  excepted = ['h','g', 'f', 'c', 'a','e','d','b']
-  actual = tree.depth_post_order()
-  assert excepted == actual
+# def test_for_post_order(tree):
+#   excepted = ['h','g', 'f', 'c', 'a','e','d','b']
+#   actual = tree.depth_post_order()
+#   assert excepted == actual
 
 @pytest.fixture
 def tree():
