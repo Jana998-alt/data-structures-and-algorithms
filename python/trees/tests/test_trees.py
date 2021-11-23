@@ -2,6 +2,7 @@ from trees import __version__
 import pytest
 
 from trees.trees import (Node, BinaryTree)
+from trees.trees import breadth_first
 
 
 def test_version():
@@ -63,6 +64,10 @@ def test_for_max_value(number_tree):
   actual = number_tree.find_maximum_value()
   assert excepted == actual
 
+def test_for_breadth_first(tree):
+  excepted = ['a','c','b','g','f','e','d','h']
+  actual = breadth_first(tree)
+  assert excepted == actual
 
 @pytest.fixture
 def tree():
