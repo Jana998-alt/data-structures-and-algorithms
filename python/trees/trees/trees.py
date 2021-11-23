@@ -184,5 +184,72 @@ class BinarySearchTree:
                 return False
 
 
+
+
+class Node_k():
+    def __init__(self, value,k = 2):
+        self.value = value
+        for i in range(k):
+            self.i = None
+
+
+class K_ary_Tree:
+    def __init__(self, k = 2):
+            self.root = None
+            self.k = k
+
+
+    def depth_in_order(self):
+
+        root = self.root
+        traversals_array = []
+
+
+        def _inorder(root):
+
+            traversals_array.append(root.value)
+            for i in range(self.k):
+                if root.i != None:
+                    _inorder(root.i)
+
+
+        _inorder(root)
+
+        return traversals_array
+
+
+
+
+def fizz_buzz_tree(ktree):
+    new_ktree = K_ary_Tree(ktree.k)
+    root = ktree.root
+    new_ktree.root = root
+
+    def _fbtree(root):
+
+        for i in range(ktree.k):
+
+            if root.i %5 and root.i %3:
+                new_ktree.root.i.value = "Buzz"
+            elif root.i %3:
+                new_ktree.root.i.value = "Fizz"
+            elif root.i %5:
+                new_ktree.root.i.value = "Buzz"
+            else:
+                new_ktree.root.i.value = str(root.i.value)
+
+            _fbtree(root.i)
+
+
+    return new_ktree
+
+
+
 if __name__ == "__main__":
-    pass
+
+  new_tree = K_ary_Tree(3)
+  new_tree.root = Node_k(1)
+  new_tree.root.1 = Node_k(22)
+
+  new_tree.depth_in_order()
+
