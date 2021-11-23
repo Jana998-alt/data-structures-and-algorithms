@@ -1,4 +1,5 @@
 import re
+from trees.Queue import Queue
 
 
 class Node:
@@ -78,7 +79,6 @@ class BinaryTree:
 
         return self.traversals_array
 
-
     def find_maximum_value(self):
 
         root = self.root
@@ -91,18 +91,52 @@ class BinaryTree:
         def _max(root):
 
             if root.value > self.max_number:
-              self.max_number = root.value
+                self.max_number = root.value
 
             if root.left != None:
-              _max(root.left)
+                _max(root.left)
 
             if root.right != None:
-              _max(root.right)
+                _max(root.right)
 
         _max(root)
 
         return self.max_number
 
+
+def breadth_first(tree):
+    if not tree:
+        raise ValueError('this function accepts a tree as an argumant')
+
+    else:
+        queue = Queue()
+        breadth_array = []
+        root = tree.root
+
+        queue.enqueue(root)
+        while queue.front != None:
+
+            front = queue.dequeue()
+            breadth_array.append(front.value)
+
+            if front.left:
+                queue.enqueue(front.left)
+
+            if front.right:
+                queue.enqueue(front.right)
+
+
+    return breadth_array
+
+
+
+
+# Write a function called breadth first
+# Arguments: tree
+# Return: list of all values in the tree, in the order they were encountered
+# NOTE: Traverse the input tree using a Breadth-first approach
+
+# Example
 
 class BinarySearchTree:
     def __init__(self) -> None:

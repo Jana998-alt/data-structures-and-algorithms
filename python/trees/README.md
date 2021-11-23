@@ -27,4 +27,17 @@ Big O:
 space: O(n)
 time: O(n)
 
+Code Challenge 17
+# Challenge Summary
+Write a function called breadth first that takes one Argument of type tree and returns a list of all values in the tree, in the Breadth-first approach.
+
+## Whiteboard Process
+![WHITEBOARD](breadth-first.PNG)
+
+## Approach & Efficiency
+using a queue to solve this problem. 
+Big O:
+space O(n)
+time O(n)
+
 
