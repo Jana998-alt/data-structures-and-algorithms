@@ -189,8 +189,9 @@ class BinarySearchTree:
 class Node_k():
     def __init__(self, value,k = 2):
         self.value = value
+        self.children = []
         for i in range(k):
-            self.i = None
+            self.children[i] = None
 
 
 class K_ary_Tree:
@@ -224,23 +225,33 @@ def fizz_buzz_tree(ktree):
     new_ktree = K_ary_Tree(ktree.k)
     root = ktree.root
     new_ktree.root = root
+    new_root = new_ktree.root
 
-    def _fbtree(root):
+    def _fbtree(root, new_root):
+
+
+        if root == None:
+            pass
+
+        elif root.value %5 and root.value %3:
+            new_root.value = "Buzz"
+        elif root.value %3:
+            new_root.value = "Fizz"
+        elif root %5:
+            new_root.value = "Buzz"
+        else:
+            new_root.value = str(root.value)
 
         for i in range(ktree.k):
 
-            if root.i %5 and root.i %3:
-                new_ktree.root.i.value = "Buzz"
-            elif root.i %3:
-                new_ktree.root.i.value = "Fizz"
-            elif root.i %5:
-                new_ktree.root.i.value = "Buzz"
-            else:
-                new_ktree.root.i.value = str(root.i.value)
-
-            _fbtree(root.i)
+            if root.children == []:
+                pass
+            elif root.children[i]:
+                _fbtree(root.children[i], new_root.children[i])
+                
 
 
+    _fbtree(root, new_root)
     return new_ktree
 
 
