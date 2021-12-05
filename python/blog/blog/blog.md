@@ -32,3 +32,16 @@ in the second **FOR** loop, where i = 2 & j = 1, there is no swapping because 23
 
 ![Third loop in FOR]('../assets/nu-3.jpeg')
 
+Now to the 4th **FOR** loop, where i = 4 & j = 3.
+Notice the steps in the hand written explenation below.
+Also note that the *temp* variable stays the same throughout the while loop. it keeps changing its place untill it finds the right spot and sits there happily. things should be clear by now.
+
+![Forth loop in FOR]('../assets/nu-4.jpeg')
+
+
+finally, the 5th loop behaves the same way as the Forth one, check it out.
+
+![Fifth loop in FOR]('../assets/nu-5.jpeg')
+
+
+Now our array is beatifully sorted to become [4,8,15,16,23,42], and it isready to go!
