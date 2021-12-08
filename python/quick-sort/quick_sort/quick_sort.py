@@ -25,8 +25,3 @@ def Swap(arr, i, low):
   temp = arr[i]
   arr[i] = arr[low]
   arr[low] = temp
-
-if __name__ == "__main__":
-  arr = [8,4,23,42,16,15]
-  x = QuickSort(arr, 0 , len(arr)-1)
-  print(x)
