@@ -17,6 +17,8 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 | 06 | [stack & queue animal shelter](python/stack-queue-animal-shelter/README.md) |
 | 07 | [Trees](python/trees/README.md) |
 
+| 10 | [Quicksort](python/quick-sort/README.md) |
+
 
 
 ### 301 Code Challenges
