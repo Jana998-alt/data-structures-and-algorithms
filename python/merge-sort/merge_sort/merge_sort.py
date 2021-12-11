@@ -40,3 +40,8 @@ def Merge(left, right, arr):
         arr[k] = left[i]
         i = i + 1
         k = k + 1
+
+if __name__ == "__main__":
+  arr = [8,4,23,42,16,15]
+  Mergesort(arr)
+  print(arr)
