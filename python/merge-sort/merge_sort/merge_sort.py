@@ -3,7 +3,7 @@ def Mergesort(arr):
   if n > 1:
     mid = n//2
     left = arr[0:mid]
-    right = arr[mid:n-1]
+    right = arr[mid:n]
 #       // sort the left side
     Mergesort(left)
 #       // sort the right side
@@ -11,7 +11,6 @@ def Mergesort(arr):
 #       // merge the sorted left and right sides together
     Merge(left, right, arr)
 
-  return arr
 
 def Merge(left, right, arr):
   i = 0
@@ -35,16 +34,9 @@ def Merge(left, right, arr):
         j = j + 1
         k = k + 1
 
-  else:
+  elif j == len(right):
       # set remaining entries in arr to remaining values in left
       while i < len(left):
         arr[k] = left[i]
         i = i + 1
         k = k + 1
-
-
-
-
-if __name__ == "__main__":
-  arr = [8,4,23,42,16,15]
-  Mergesort(arr)
