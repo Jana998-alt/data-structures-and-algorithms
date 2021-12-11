@@ -25,7 +25,6 @@ class Linked_List:
             self.head.next = temp_node
 
 
-
     def includes(self,value):
     # Arguments: value
     # Returns: Boolean
@@ -69,8 +68,6 @@ class Linked_List:
                     break
                 else:
                     current_node = current_node.next
-
-
 
 
     def insert_before(self,value, new_value):
