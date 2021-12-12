@@ -1,6 +1,3 @@
-# Implement a Hashtable Class with the following methods:
-
-
 class Hashtable():
   def __init__(self):
     self.table = []
@@ -50,10 +47,19 @@ class Hashtable():
     return hash_val
 
 
-if __name__ =="__main__":
-  key = "jana"
-  value = 23
-  hash_table = Hashtable()
-  print(hash_table._hash(10))
-  print(hash_table._hash(20))
-  print(hash_table._hash('jana'))
+# finds the first word to occur more than once in a string
+def repeated_word(string):
+  list_words = Hashtable()
+  temp_word = ''
+  for i in string:
+    i = i.lower()
+    if i != ' ' and i != '.' and i != ',':
+      temp_word = temp_word + i
+    else:
+      if list_words.contains(temp_word):
+        return temp_word
+      else:
+        if temp_word != '':
+          list_words.add(temp_word,1)
+          temp_word = ''
+  return None
