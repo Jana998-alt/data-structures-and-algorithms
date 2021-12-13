@@ -1,5 +1,5 @@
 import re
-from trees.Queue import Queue
+from Queue import (Queue)
 
 
 class Node:
@@ -125,10 +125,7 @@ def breadth_first(tree):
             if front.right:
                 queue.enqueue(front.right)
 
-
     return breadth_array
-
-
 
 
 # Write a function called breadth first
@@ -184,5 +181,81 @@ class BinarySearchTree:
                 return False
 
 
+class Node_k():
+    def __init__(self, value, k=2):
+        self.value = value
+        self.children = []
+        for i in range(k):
+            self.children.append(None)
+
+
+class K_ary_Tree:
+    def __init__(self, k=2):
+        self.root = None
+        self.k = k
+
+    def depth_in_order(self):
+
+        root = self.root
+        traversals_array = []
+
+        def _inorder(root):
+
+            traversals_array.append(root.value)
+
+            for i in range(self.k):
+                if root.children[i] != None:
+                    _inorder(root.children[i])
+
+        _inorder(root)
+
+        return traversals_array
+
+
+def fizz_buzz_tree(ktree):
+
+    k = ktree.k
+    new_ktree = K_ary_Tree(k)
+    root = ktree.root
+    new_root = new_ktree.root
+
+    def _fbtree(root, new_root):
+
+        if root == None:
+            pass
+
+        elif root.value%5 == 0 and root.value%3 == 0:
+            new_root = Node_k("FizzBuzz", k)
+
+        elif root.value % 3 == 0:
+            new_root = Node_k("Fizz", k)
+
+        elif root.value % 5 == 0:
+            new_root = Node_k("Buzz", k)
+
+        else:
+            new_root = Node_k(str(root.value), k)
+
+        for i in range(ktree.k):
+
+            if root.children == []:
+                pass
+            elif root.children[i]:
+                _fbtree(root.children[i], new_root.children[i])
+
+        return new_root
+
+
+    val = _fbtree(root, new_root)
+    print(val)
+    return new_ktree
+
+
 if __name__ == "__main__":
-    pass
+
+    new_tree = K_ary_Tree(3)
+    new_tree.root = Node_k(1, 3)
+    new_tree.root.children[0] = Node_k(22,3)
+
+    print(new_tree.depth_in_order())
+    print(fizz_buzz_tree(new_tree).depth_in_order())
