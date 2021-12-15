@@ -23,3 +23,32 @@ Returns: Boolean, indicating if the key exists in the table already.
 - hash
 Arguments: key
 Returns: Index in the collection for that key
+
+
+
+# Hashmap LEFT JOIN
+<!-- Short summary or background information -->
+Hashmap left join is a function that joins two hashtables together in a certain form.
+
+## Challenge
+<!-- Description of the challenge -->
+Write a function that LEFT JOINs two hashmaps into a single data structure.
+
+Write a function called left join
+Arguments: two hash maps
+The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+-looped through the first hashtable. for each pair, make sure it exists in the second table.
+- if it does merge the two values
+- if it is not, just add the pair with a null value
+- then loop through the second hashtable and make sure all the elements are inside the output table.
+
+time O(n^2)
+space O(n)
+
+## Solution
+![WB left merge](left-merge.PNG)
