@@ -61,6 +61,9 @@ class Hashtable():
 
     return values_in
 
+  def __str__(self):
+    return self.__iter__().__str__()
+
 
 
 
@@ -71,42 +74,26 @@ class Hashtable():
 # Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
 
 def left_join(hash1, hash2):
-  array_of_values1 = hash1.__iter__()
-  array_of_values2 = hash2.__iter__()
-  array_answer = []
+    array_of_values1 = hash1.__iter__()
+    array_of_values2 = hash2.__iter__()
+    array_answer = Hashtable()
 
-  for i in range(len(array_of_values1)):
-    key1 = array_of_values1[i][0]
-    value1 = array_of_values1[i][1]
-    exists = 0
-    if hash2.contains(key1) and exists ==0:
-      for j in range(len(array_of_values1)):
-        key2 = array_of_values2[j][0]
-        value2 = array_of_values2[j][1]
-        if key1 == key2:
-          array_answer.append([key1, value1, value2])
-          exists = 1
-        elif not hash1.contains(key2) and exists ==0:
-          array_answer.append([key2, value2, None])
-    else:
-      array_answer.append([key1, value1, None])
-
-  return array_answer
+    for i in range(len(array_of_values1)):
+      key1 = array_of_values1[i][0]
+      value1 = array_of_values1[i][1]
+      if hash2.contains(key1):
+        value2 = hash2.get(key1)
+        array_answer.add(key1, [value1, value2])
+      elif not hash2.contains(key1) and not array_answer.contains(key1):
+        array_answer.add(key1, [value1, None])
 
 
+    for i in range(len(array_of_values2)):
+      key2 = array_of_values2[i][0]
+      value2 = array_of_values2[i][1]
+      if not hash1.contains(key2) and not array_answer.contains(key2):
+        array_answer.add(key2, [value2, None])
 
-if __name__ =="__main__":
-  key = "jana"
-  value = 23
-  hash_table = Hashtable()
-  hash_table.add(key,value)
-  hash_table.add('bell', 25)
-  hash_table2 = Hashtable()
-  hash_table2.add('jana',1000)
-  hash_table2.add('bell', 2000)
-  hash_table2.add('kaka',1000)
-  hash_table.add('potato', 2000)
+    return array_answer.__iter__()
 
-  print(left_join(hash_table, hash_table2))
 
-# dgfdgf
