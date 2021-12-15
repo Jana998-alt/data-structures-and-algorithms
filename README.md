@@ -18,7 +18,8 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 | 07 | [Trees](python/trees/README.md) |
 | 08 | [Merge Sort](python/merge-sort/README.md) |
 | 10 | [Quicksort](python/quick-sort/README.md) |
-| 10 | [Hashtable](python/hashtable/README.md) |
+| 11 | [Hashtable](python/hashtable/README.md) |
+| 13 | [hash-left-join](python/hashtable/README.md)|
 
 
 ### 301 Code Challenges
