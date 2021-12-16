@@ -35,9 +35,33 @@ Write a function called breadth first that takes one Argument of type tree and r
 ![WHITEBOARD](breadth-first.PNG)
 
 ## Approach & Efficiency
-using a queue to solve this problem. 
+using a queue to solve this problem.
 Big O:
 space O(n)
 time O(n)
 
+Code Challenge 18
+# Challenge Summary
+Write a function called fizz buzz tree
+
+Arguments: k-ary tree
+
+Return: new k-ary tree
+
+If the value is divisible by 3, replace the value with “Fizz”
+
+If the value is divisible by 5, replace the value with “Buzz”
+
+If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+
+If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+## Whiteboard Process
+![WHITEBOARD](fizzbuzz.PNG)
+
+## Approach & Efficiency
+Using recursion for this challenge.
+Big O:
+space O(n)
+time O(n)
 

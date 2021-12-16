@@ -49,6 +49,10 @@ class BinaryTree:
         test = None
         traversals_array = []
 
+        if root == None:
+            root = self.root
+            self.traversals_array = []
+
         def _inorder(root):
             if root.left != None:
                 _inorder(root.left)
@@ -224,7 +228,7 @@ def fizz_buzz_tree(ktree):
         if root == None:
             pass
 
-        elif root.value%5 == 0 and root.value%3 == 0:
+        if root.value%5 == 0 and root.value%3 == 0:
             new_root = Node_k("FizzBuzz", k)
 
         elif root.value % 3 == 0:
