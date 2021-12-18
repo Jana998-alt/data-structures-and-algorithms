@@ -35,9 +35,7 @@ Write a function called breadth first that takes one Argument of type tree and r
 ![WHITEBOARD](breadth-first.PNG)
 
 ## Approach & Efficiency
-using a queue to solve this problem. 
+using a queue to solve this problem.
 Big O:
 space O(n)
 time O(n)
-
-
