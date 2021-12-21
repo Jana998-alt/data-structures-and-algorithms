@@ -112,3 +112,13 @@ class Graph():
 
       return nodes_values
 
+# Write a function called business trip
+# Arguments: graph, array of city names
+# Return: cost or null
+
+def business_trip(graph, city_names):
+
+  return cost
+
+
+# sdsf
