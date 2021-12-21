@@ -1,5 +1,6 @@
 import re
-from graph.Queue import Queue
+from graph.Queue import Queue, Node
+
 import random
 
 class Vertex():
@@ -24,11 +25,11 @@ class Graph():
 # Returns: The added node
 # Add a node to the graph
   def add_node(self, value):
-    if isinstance(value, Vertex):
+    if isinstance(value, Node):
       self.__adj_list[value] = []
       return value
     else:
-      node = Vertex(value)
+      node = Node(value)
       self.__adj_list[node] = []
       return node
 
@@ -106,9 +107,17 @@ class Graph():
             visited.add(child)
             breadth.enqueue(child)
 
+
       for node in nodes:
         nodes_values.append(node.value)
 
 
       return nodes_values
 
+if __name__ == "__main__":
+
+  graph = Graph()
+  graph.add_edge(graph.add_node("blue"),graph.add_node("pink"))
+
+  print(graph.breadth_first())
+  # sdvcs

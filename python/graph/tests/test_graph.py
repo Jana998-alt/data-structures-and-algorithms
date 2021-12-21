@@ -1,6 +1,7 @@
 from graph import __version__
 import pytest
-from graph.graph import Graph, Vertex
+from graph.graph import Graph
+from graph.Queue import Node
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -9,7 +10,7 @@ def test_version():
 def test_add_node(EmptyGraph):
   EmptyGraph.add_node("pink")
   excepted = EmptyGraph.get_nodes()
-  node = Vertex("pink")
+  node = Node("pink")
   acutual = [node.value]
   assert acutual == excepted
 
@@ -44,9 +45,15 @@ def test_size(Graph1):
   assert excepted == actual
 
 # test for breadth first
-def test_size2(Graph2):
+def test_breadth_first2(Graph2):
   excepted = {"pink", "blue"}
   actual = set(Graph2.breadth_first())
+
+  assert excepted == actual
+
+def test_breadth_first3(Graph3):
+  excepted = {"pink", "blue", "black", "purple", "white", "yellow"}
+  actual = set(Graph3.breadth_first())
 
   assert excepted == actual
 
@@ -70,25 +77,25 @@ def Graph2():
   graph.add_edge(graph.add_node("blue"),graph.add_node("pink"))
   return graph
 
-# @pytest.fixture
-# def Graph2():
-#   graph = Graph()
-#   ver1 = Vertex("blue")
-#   ver2 = Vertex("pink")
-#   graph.add_node(ver1)
-#   graph.add_node(ver2)
-#   ver3 = Vertex("black")
-#   ver4 = Vertex("purple")
-#   ver5 = Vertex("white")
-#   ver6 = Vertex("yellow")
-#   graph.add_node(ver3)
-#   graph.add_node(ver4)
-#   graph.add_node(ver6)
-#   graph.add_node(ver5)
-#   graph.add_edge(ver1, ver2)
-#   graph.add_edge(ver3, ver4)
-#   graph.add_edge(ver5, ver6)
-#   graph.add_edge(ver1, ver4)
-#   graph.add_edge(ver3, ver6)
-#   graph.add_edge(ver5, ver1)
-#   return graph
+@pytest.fixture
+def Graph3():
+  graph = Graph()
+  ver1 = Node("blue")
+  ver2 = Node("pink")
+  graph.add_node(ver1)
+  graph.add_node(ver2)
+  ver3 = Node("black")
+  ver4 = Node("purple")
+  ver5 = Node("white")
+  ver6 = Node("yellow")
+  graph.add_node(ver3)
+  graph.add_node(ver4)
+  graph.add_node(ver6)
+  graph.add_node(ver5)
+  graph.add_edge(ver1, ver2)
+  graph.add_edge(ver3, ver4)
+  graph.add_edge(ver5, ver6)
+  graph.add_edge(ver1, ver4)
+  graph.add_edge(ver3, ver6)
+  graph.add_edge(ver5, ver1)
+  return graph
