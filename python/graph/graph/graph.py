@@ -12,9 +12,10 @@ class Vertex():
       return self
 
 class Edge():
-  def __init__(self, vertex1, vertex2):
+  def __init__(self, vertex1, vertex2, weight = None):
       self.vertex1 = vertex1
       self.vertex2 = vertex2
+      self.weight = weight
 
 class Graph():
 
@@ -34,20 +35,29 @@ class Graph():
       self.__adj_list[node] = []
       return node
 
+  def node_exists(self, node):
+    if node in self.__adj_list:
+      return True
+
+    else:
+      return False
 # add edge
 # Arguments: 2 nodes to be connected by the edge, weight (optional)
 # Returns: nothing
 # Adds a new edge between two nodes in the graph
 # If specified, assign a weight to the edge
 # Both nodes should already be in the Graph
-  def add_edge(self, start_vertex, end_vertex):
+  def add_edge(self, start_vertex, end_vertex, weight):
     if start_vertex not in self.__adj_list or end_vertex not in self.__adj_list:
       raise ValueError("nodes do not exist in this graph")
 
-    edge = Edge(start_vertex, end_vertex)
+    edge = Edge(start_vertex, end_vertex, weight)
     self.__adj_list[start_vertex].append(edge)
     self.__adj_list[end_vertex].append(edge)
 
+  def get_node_edges(self, node):
+    edges = self.__adj_list[node]
+    return edges
 
 # get nodes
 # Arguments: none
@@ -121,8 +131,30 @@ class Graph():
 # Return: cost or null
 
 def business_trip(graph, city_names):
+  graph_list = graph.get_nodes()
+  cost = 0
 
-  return cost
+  for i in range(city_names-1):
+
+    if city_names[i] not in graph_list:
+      raise ValueError("city is not defined")
+
+    else:
+      edges = graph.get_node_edges(city_names[i])
+
+      for edge in edges:
+        if edge.vertex1 == city_names[i+1]:
+          cost = cost + edge.weight
+
+        elif edge.vertex2 == city_names[i+1]:
+          cost = cost + edge.weight
+
+
+  if cost == 0:
+    return (False, cost, '$')
+
+  else:
+    return (True, cost, '$')
 
 
 # sdsf
@@ -133,5 +165,3 @@ if __name__ == "__main__":
   graph.add_edge(graph.add_node("blue"),graph.add_node("pink"))
 
   print(graph.breadth_first())
-  # sdvcs
-
