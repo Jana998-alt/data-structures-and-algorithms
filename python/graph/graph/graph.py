@@ -1,9 +1,13 @@
+import re
+from graph.Queue import Queue
+import random
+
 class Vertex():
   def __init__(self, value):
       self.value = value
 
   def __str__(self):
-      return self.value
+      return self
 
 class Edge():
   def __init__(self, vertex1, vertex2):
@@ -20,9 +24,13 @@ class Graph():
 # Returns: The added node
 # Add a node to the graph
   def add_node(self, value):
-    node = Vertex(value)
-    self.__adj_list[node] = []
-    return node
+    if isinstance(value, Vertex):
+      self.__adj_list[value] = []
+      return value
+    else:
+      node = Vertex(value)
+      self.__adj_list[node] = []
+      return node
 
 # add edge
 # Arguments: 2 nodes to be connected by the edge, weight (optional)
@@ -69,4 +77,38 @@ class Graph():
 
   def size(self):
     return len(self.get_nodes())
+
+# Write the following method for the Graph class:
+
+# breadth first
+# Arguments: Node
+# Return: A collection of nodes in the order they were visited.
+# Display the collection
+
+  def breadth_first(self, vertex=None):
+    if vertex == None:
+      vertex = random.choice(list(self.__adj_list.keys()))
+    if vertex:
+      nodes = []
+      nodes_values = []
+      breadth = Queue()
+      visited = set()
+
+      breadth.enqueue(vertex)
+      visited.add(vertex)
+
+      while not breadth.is_empty():
+        front = breadth.dequeue()
+        nodes.append(front)
+        children = self.get_neighbors(front)
+        for child in children:
+          if child not in visited:
+            visited.add(child)
+            breadth.enqueue(child)
+
+      for node in nodes:
+        nodes_values.append(node.value)
+
+
+      return nodes_values
 

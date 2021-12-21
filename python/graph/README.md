@@ -1,15 +1,15 @@
 # Graphs
-Graphs are data structures that have nodes connected to each other with edges. 
+Graphs are data structures that have nodes connected to each other with edges.
 
 ## Challenge
-implement a graph data structure, with methods: add node, get nodes, add edge, get neighbors, and size. 
+implement a graph data structure, with methods: add node, get nodes, add edge, get neighbors, and size.
 
 ## Efficiency
 add node: O(1)
 get nodes: O(n)
 add edge: O(1)
 get neighbors: O(n)
-size: O(n) 
+size: O(n)
 
 ## API
 - add node
@@ -44,3 +44,13 @@ Include the weight of the connection in the returned collection
 Arguments: none
 
 Returns the total number of nodes in the graph
+
+
+# Graphs breadth first
+traverse graphs in the breadth first method
+
+## Efficiency
+O(n^2)
+
+## whiteboard
+![whiteboard breadth first](breadth-first_graph.PNG)
