@@ -1,3 +1,6 @@
+import re
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -39,11 +42,17 @@ class Queue():
     def dequeue(self):
         if self.is_empty():
             raise ValueError('empty queue')
+        elif self.front:
+          temp_val = self.front.value
+          self.front = self.front.next
 
-        temp_val = self.front.value
-        self.front = self.front.next
+          return temp_val
 
-        return temp_val
+        elif self.rear:
+          temp_val = self.rear.value
+          self.rear = None
+
+          return temp_val
 
     # peek
     # Arguments: none
