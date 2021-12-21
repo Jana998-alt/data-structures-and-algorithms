@@ -1,6 +1,7 @@
 import re
 from graph.Queue import Queue, Node
 
+
 import random
 
 class Vertex():
