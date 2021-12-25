@@ -12,7 +12,7 @@ class Vertex():
       return self
 
 class Edge():
-  def __init__(self, vertex1, vertex2, weight = None):
+  def __init__(self, vertex1, vertex2, weight=0):
       self.vertex1 = vertex1
       self.vertex2 = vertex2
       self.weight = weight
@@ -47,7 +47,7 @@ class Graph():
 # Adds a new edge between two nodes in the graph
 # If specified, assign a weight to the edge
 # Both nodes should already be in the Graph
-  def add_edge(self, start_vertex, end_vertex, weight):
+  def add_edge(self, start_vertex, end_vertex, weight = 0):
     if start_vertex not in self.__adj_list or end_vertex not in self.__adj_list:
       raise ValueError("nodes do not exist in this graph")
 
@@ -56,8 +56,15 @@ class Graph():
     self.__adj_list[end_vertex].append(edge)
 
   def get_node_edges(self, node):
-    edges = self.__adj_list[node]
-    return edges
+    if isinstance(node, Vertex) or isinstance(node, Node):
+      edges = self.__adj_list[node]
+      return edges
+    else:
+      for element in self.__adj_list:
+        if element.value == node:
+          return self.__adj_list[element]
+
+    raise ValueError("input does not exist in graph")
 
 # get nodes
 # Arguments: none
@@ -134,7 +141,8 @@ def business_trip(graph, city_names):
   graph_list = graph.get_nodes()
   cost = 0
 
-  for i in range(city_names-1):
+  for i in range(len(city_names)-1):
+    print(i)
 
     if city_names[i] not in graph_list:
       raise ValueError("city is not defined")
@@ -143,18 +151,20 @@ def business_trip(graph, city_names):
       edges = graph.get_node_edges(city_names[i])
 
       for edge in edges:
-        if edge.vertex1 == city_names[i+1]:
+        if edge.vertex1.value == city_names[i+1]:
           cost = cost + edge.weight
 
-        elif edge.vertex2 == city_names[i+1]:
+        elif edge.vertex2.value == city_names[i+1]:
           cost = cost + edge.weight
+          print(cost)
+        print(edge.vertex1.value, edge.vertex2.value, edge.weight)
 
 
   if cost == 0:
-    return (False, cost, '$')
+    return (False,'$'+str(cost))
 
   else:
-    return (True, cost, '$')
+    return (True, '$'+str(cost))
 
 
 # sdsf

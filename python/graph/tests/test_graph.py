@@ -2,6 +2,7 @@ from graph import __version__
 import pytest
 from graph.graph import Graph
 from graph.Queue import Node
+from graph.graph import business_trip
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -57,6 +58,33 @@ def test_breadth_first3(Graph3):
 
   assert excepted == actual
 
+def test_business_trip1(trip_graph):
+
+  excepted = (True, "$82")
+  actual = business_trip(trip_graph, ["Metroville", "Pandora", ])
+
+  assert excepted == actual
+
+def test_business_trip2(trip_graph):
+
+  excepted = (True, "$115")
+  actual = business_trip(trip_graph,["Arendelle", "New Monstropolis", "Naboo"])
+
+  assert excepted == actual
+
+def test_business_trip3(trip_graph):
+
+  excepted = (False, "$0")
+  actual = business_trip(trip_graph, ["Naboo", "Pandora"])
+
+  assert excepted == actual
+
+def test_business_trip4(trip_graph):
+
+  excepted = (False, "$0")
+  actual = business_trip(trip_graph, ["Narnia", "Arendelle", "Naboo"])
+
+  assert excepted == actual
 
 @pytest.fixture
 def EmptyGraph():
@@ -98,4 +126,34 @@ def Graph3():
   graph.add_edge(ver1, ver4)
   graph.add_edge(ver3, ver6)
   graph.add_edge(ver5, ver1)
+  return graph
+
+@pytest.fixture
+def trip_graph():
+  graph = Graph()
+
+  ver1 = Node("Pandora")
+  ver2 = Node("Arendelle")
+  ver3 = Node("Metroville")
+  ver4 = Node("New Monstropolis")
+  ver5 = Node("Narnia")
+  ver6 = Node("Naboo")
+
+  graph.add_node(ver1)
+  graph.add_node(ver2)
+  graph.add_node(ver3)
+  graph.add_node(ver4)
+  graph.add_node(ver5)
+  graph.add_node(ver6)
+
+  graph.add_edge(ver1, ver2, 150)
+  graph.add_edge(ver1, ver3, 82)
+  graph.add_edge(ver2, ver3, 99)
+  graph.add_edge(ver2, ver4, 42)
+  graph.add_edge(ver3, ver4, 105)
+  graph.add_edge(ver5, ver6, 250)
+  graph.add_edge(ver6, ver4, 73)
+  graph.add_edge(ver6, ver3, 26)
+  graph.add_edge(ver5, ver3, 37)
+
   return graph
