@@ -54,3 +54,17 @@ O(n^2)
 
 ## whiteboard
 ![whiteboard breadth first](breadth-first_graph.PNG)
+
+
+# Graph Business Trip
+Write a function called business trip that takes the Arguments: (graph, array of city names)and returns: cost or null.
+Determine whether the trip is possible with direct flights, and how much it would cost.
+
+## Efficiency
+O(n^2)
+
+## Approach
+ I had to write down a helper method: get edges, it made my solution more easier.
+
+## whiteboard
+
