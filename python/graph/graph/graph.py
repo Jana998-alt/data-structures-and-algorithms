@@ -142,7 +142,6 @@ def business_trip(graph, city_names):
   cost = 0
 
   for i in range(len(city_names)-1):
-    print(i)
 
     if city_names[i] not in graph_list:
       raise ValueError("city is not defined")
@@ -156,8 +155,7 @@ def business_trip(graph, city_names):
 
         elif edge.vertex2.value == city_names[i+1]:
           cost = cost + edge.weight
-          print(cost)
-        print(edge.vertex1.value, edge.vertex2.value, edge.weight)
+
 
 
   if cost == 0:

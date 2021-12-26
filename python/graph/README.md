@@ -67,4 +67,4 @@ O(n^2)
  I had to write down a helper method: get edges, it made my solution more easier.
 
 ## whiteboard
-
+![Business Trip](city-trip.PNG)
