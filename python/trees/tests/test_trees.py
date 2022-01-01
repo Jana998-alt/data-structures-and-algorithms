@@ -94,6 +94,4 @@ def number_tree():
   return new_tree
 
 # a
-# c   b
-# gf   ed
-#  h
+

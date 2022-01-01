@@ -1,5 +1,5 @@
 import re
-from Queue import (Queue)
+from trees.Queue import Queue
 
 
 class Node:
