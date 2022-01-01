@@ -68,3 +68,19 @@ O(n^2)
 
 ## whiteboard
 ![Business Trip](city-trip.PNG)
+
+# Graph Depth First
+Write the a depth first traversal method for the Graph class you implemented before.
+
+it should take Arguments: Node (Starting point of search) and return: A collection of nodes in their pre-order depth-first traversal orderand outputs the collection.
+
+
+## Efficiency
+Space O(n)
+Time O(n)
+
+## Approach
+Recursion
+
+## whiteboard
+![Depth First](graph-depth-first.PNG)

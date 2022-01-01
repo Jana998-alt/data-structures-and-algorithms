@@ -157,8 +157,7 @@ class Graph():
           self._visited.add(neighbor)
           self._depth_output.append(neighbor.value)
           _depth(neighbor)
-      return vertex.value
-
+  
     _depth(vertex)
     return self._depth_output
 
