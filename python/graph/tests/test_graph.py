@@ -1,6 +1,6 @@
 from graph import __version__
 import pytest
-from graph.graph import Graph
+from graph.graph import Graph, Vertex
 from graph.Queue import Node
 from graph.graph import business_trip
 
@@ -86,6 +86,12 @@ def test_business_trip4(trip_graph):
 
   assert excepted == actual
 
+def test_depth_first(depth_graph):
+  graph, node = depth_graph
+  expected = ["A", "B", "C", "G", "D", "E", "H", "F"]
+  actual = graph.depth_first(node)
+  assert expected == actual
+
 @pytest.fixture
 def EmptyGraph():
   graph = Graph()
@@ -157,3 +163,39 @@ def trip_graph():
   graph.add_edge(ver5, ver3, 37)
 
   return graph
+
+@pytest.fixture
+def depth_graph():
+
+  graph = Graph()
+
+  ver1 = Vertex("A")
+  ver2 = Vertex("B")
+  ver3 = Vertex("C")
+  ver4 = Vertex("D")
+  ver5 = Vertex("E")
+  ver6 = Vertex("F")
+  ver7 = Vertex("G")
+  ver8 = Vertex("H")
+
+
+  graph.add_node(ver1)
+  graph.add_node(ver2)
+  graph.add_node(ver3)
+  graph.add_node(ver4)
+  graph.add_node(ver5)
+  graph.add_node(ver6)
+  graph.add_node(ver7)
+  graph.add_node(ver8)
+
+  graph.add_edge(ver1, ver2)
+  graph.add_edge(ver1, ver4)
+  graph.add_edge(ver2, ver3)
+  graph.add_edge(ver2, ver4)
+  graph.add_edge(ver3, ver7)
+  graph.add_edge(ver4, ver5)
+  graph.add_edge(ver4, ver8)
+  graph.add_edge(ver4, ver6)
+  graph.add_edge(ver6, ver8)
+
+  return graph, ver1
