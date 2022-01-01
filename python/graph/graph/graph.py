@@ -30,6 +30,9 @@ class Graph():
     if isinstance(value, Node):
       self.__adj_list[value] = []
       return value
+    elif isinstance(value, Vertex):
+      self.__adj_list[value] = []
+      return value
     else:
       node = Node(value)
       self.__adj_list[node] = []
@@ -132,6 +135,32 @@ class Graph():
 
       return nodes_values
 
+  # Name: Depth first
+  # Arguments: Node (Starting point of search)
+  # Return: A collection of nodes in their pre-order depth-first traversal order
+  # Program output: Display the collection
+
+  def depth_first(self, vertex):
+    if not isinstance(vertex, Vertex):
+      raise ValueError("input must be a Vertex")
+    self._visited = set()
+    self._depth_output = []
+    def _depth(vertex):
+      if vertex not in self._visited:
+        self._visited.add(vertex)
+        self._depth_output.append(vertex.value)
+
+      neighbors = self.get_neighbors(vertex)
+
+      for neighbor in neighbors:
+        if neighbor not in self._visited:
+          self._visited.add(neighbor)
+          self._depth_output.append(neighbor.value)
+          _depth(neighbor)
+  
+    _depth(vertex)
+    return self._depth_output
+
 
 # Write a function called business trip
 # Arguments: graph, array of city names
@@ -163,6 +192,9 @@ def business_trip(graph, city_names):
 
   else:
     return (True, '$'+str(cost))
+
+
+
 
 
 # sdsf
